@@ -271,52 +271,9 @@
         </div>
       </section>
       <!-- Why You Should Listen to OnWave-->
-      <section class="section section-lg">
-        <div class="container text-center">
-          <h2>Why You Should Listen to OnWave</h2>
-          <div class="row row-40 justify-content-center number-counter">
-            <div class="col-sm-6 col-lg-3 wow fadeInLeft">
-              <div class="blurb-icon-fill">
-                <div class="icon linearicons-star"><span class="index-counter"></span></div>
-                <h5 class="title">Best Music Selection</h5>
-                <p class="exeption">OnWave offers its listeners the best music in various styles, from electronic to rock music.</p>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-3 wow fadeInLeft" data-wow-delay="0.1s">
-              <div class="blurb-icon-fill">
-                <div class="icon linearicons-news"><span class="index-counter"></span></div>
-                <h5 class="title">Latest News</h5>
-                <p class="exeption">Our hosts are always ready to share with you the latest regional and global news and updates.</p>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-3 wow fadeInLeft" data-wow-delay="0.2s">
-              <div class="blurb-icon-fill">
-                <div class="icon linearicons-sun"><span class="index-counter"></span></div>
-                <h5 class="title">Available Everywhere</h5>
-                <p class="exeption">You can listen to our radio both online and offline via any devices, gadgets or radios.</p>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-3 wow fadeInLeft" data-wow-delay="0.3s">
-              <div class="blurb-icon-fill">
-                <div class="icon linearicons-medal-empty"><span class="index-counter"></span></div>
-                <h5 class="title">Best DJ Shows</h5>
-                <p class="exeption">OnWave regularly broadcasts shows from the best DJs in the world that play exclusive tracks for you.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
       <!-- Call to action-->
-      <section class="section section-xs bg-primary-gradient">
-        <div class="container">
-          <div class="box-cta">
-            <div class="box-cta-inner">
-              <h3>Listen to OnWave From Anywhere!</h3>
-            </div>
-            <div class="box-cta-inner"><a class="button button-md button-white" href="#">Listen Online</a></div>
-          </div>
-        </div>
-      </section>
+
       <!-- Pricing-->
       <section class="section section-lg hide">
         <div class="container text-center">
@@ -330,7 +287,7 @@
 <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5genrsy6z60&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script></center>
         </div>
       </section>
-      <!-- Page Footer--><a class="banner" href="https://conexzion.cl" target="_blank"><img src="images/monstroid_big_02.jpg" alt="" height="0"/></a>
+      <!-- Page Footer--><a class="banner" href="https://conexzion.cl" target="_blank"><img src="#" alt="" height="0"/></a>
       <footer class="section footer-2">
         <div class="container">
           <div class="row row-40">
@@ -387,15 +344,55 @@
               <h5 class="text-white title">Newsletter</h5>
               <p>Keep up with our always upcoming news and updates. Enter your e-mail and subscribe to our newsletter.</p>
               <!-- RD Mailform-->
-              <form class="rd-form form-sm rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-                <div class="form-wrap">
-                  <input class="form-input" id="newsletter-email" type="email" name="email" data-constraints="@Email @Required">
-                  <label class="form-label" for="newsletter-email">Enter your e-mail</label>
-                </div>
-                <button class="button button-primary" type="submit">Subscribe</button>
-              </form>
-            </div>
-          </div>
+<form method="GET" action="mailto:positiveconexzion@gmail.com" enctype="text/plain">
+    <div>Sujeto</div>
+    <input type="text" name="subject" />
+
+    <div>Nombre</div>
+    <input name="Name" />
+
+    <div>E-Mail</div>
+    <input name="E-Mail Address" />
+
+    <div>Mensaje</div>
+    <textarea name="Message"></textarea>
+
+    <br/>
+    <input type="submit" value="Send" />
+
+    <input type="hidden" name="body" />
+</form>
+
+<script>
+   var form = document.getElementsByTagName('form')[0];
+   form.addEventListener('submit',contact,false);
+   function contact(e) {
+      // Prevent Default Form Submission
+      e.preventDefault();
+
+      var target = e.target || e.srcElement;
+      var i = 0;
+      var message = '';
+
+      // Loop Through All Input Fields
+      for(i = 0; i < target.length; ++i) {
+         // Check to make sure it's a value. Don't need to include Buttons
+         if(target[i].type != 'text' && target[i].type != 'textarea') {
+                // Skip to next input since this one doesn't match our rules
+            continue;
+         }
+
+         // Add Input Name and value followed by a line break
+         message += target[i].name + ': ' + target[i].value + "\r\n";
+      }
+      // Modify the hidden body input field that is required for the mailto: scheme
+      target.elements["body"].value = message;
+
+      // Submit the form since we previously stopped it. May cause recursive loop in some browsers? Should research this.
+      this.submit();
+   }
+</script>
+
           <!-- Rights-->
           <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span> <span>PositiveConexzionCrew</span>. All Rights Reserved. Design by <a href="https://www.conexzion.cl">JahlizeDj</a>
           </p>
